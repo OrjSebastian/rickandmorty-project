@@ -1,0 +1,7 @@
+{
+  "name": "rickAndMorty-project",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
