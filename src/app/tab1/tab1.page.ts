@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { RickAndMortyService } from '../services/rick-and-morty.service';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
-  standalone: true,
-  imports: [IonicModule, ExploreContainerComponent],
+  selector: 'app-all-characters',
+  templateUrl: './tab1.page.html',
+  styleUrls: ['./tab1.page.scss'],
 })
-export class Tab1Page implements OnInit {
+export class allCharacters implements OnInit {
 
   allCharacters: any;
 
+
   constructor(
     private ramService: RickAndMortyService
-  ) {}
-}
+    ) { }
 
+    ngOnInit() {
+      this.ramService.getAllCharacters().then( (res: any) => {
+        this.allCharacters = res;
+        console.log (this.allCharacters);
+      });
+    }
+}
