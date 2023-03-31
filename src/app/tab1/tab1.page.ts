@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { RickAndMortyService } from '../services/rick-and-morty.service';
 
 @Component({
   selector: 'app-tab1',
@@ -9,6 +10,12 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   standalone: true,
   imports: [IonicModule, ExploreContainerComponent],
 })
-export class Tab1Page {
-  constructor() {}
+export class Tab1Page implements OnInit {
+
+  allCharacters: any;
+
+  constructor(
+    private ramService: RickAndMortyService
+  ) {}
 }
+
